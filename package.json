@@ -1,0 +1,25 @@
+{
+  "name": "hitman-soundboard",
+  "version": "1.0.0",
+  "description": "Les répliques de votre nanar préféré à portée de clic.",
+  "devDependencies": {
+    "typescript": "^3.6.3"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jRimbault/hitman.git"
+  },
+  "author": "Kevin Vanzandberghe <kevin@vzb.io> https://github.com/kvzb",
+  "contributors": [
+    "Jacques Rimbault <jacques.rimbault@gmail.com> https://github.com/jRimbault",
+    "Simon Henrotte <henrotte.simon@gmail.com> https://github.com/gizmodesbois"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jRimbault/hitman/issues"
+  },
+  "homepage": "https://github.com/jRimbault/hitman#readme"
+}
