@@ -56,6 +56,7 @@ html {
   margin: 0 2em 2em 0;
   min-width: 370px;
   text-align: left;
+  cursor: pointer;
 }
 
 .words li strong {

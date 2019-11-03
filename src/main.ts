@@ -7,14 +7,15 @@ const play = (file: string) => new Audio(`sounds/${file}`).play()
 const listenToClick = (sound: Sound) => () => play(sound.file)
 
 function makeListItem(sound: Sound) {
-  const node = createNode('li', {
+  return createNode('li', {
     children: [
       createNode('strong', { textContent: sound.key }),
       createNode('span', { classList: 'words-text', textContent: sound.text }),
     ],
+    listeners: {
+      click: { callback: listenToClick(sound) }
+    }
   })
-  node.addEventListener('click', listenToClick(sound))
-  return node
 }
 
 function insertList(listNodes: HTMLLIElement[]) {
@@ -23,12 +24,12 @@ function insertList(listNodes: HTMLLIElement[]) {
 }
 
 function listeningToKeyboard(sounds: Sound[]) {
-  const charCodes = sounds.reduce<Partial<Record<number, string>>>((acc, sound) => {
-    acc[sound.key.charCodeAt(0)] = sound.file
+  const charCodes = sounds.reduce<Partial<Record<string, string>>>((acc, sound) => {
+    acc[sound.key.toLowerCase()] = sound.file
     return acc
   }, {})
   document.addEventListener('keydown', $event => {
-    const audioCode = charCodes[$event.keyCode]
+    const audioCode = charCodes[$event.key.toLowerCase()]
     if (audioCode) play(audioCode)
   })
   return sounds
