@@ -7,6 +7,8 @@
       "dom",
       "esnext"
     ],
+    "outDir": "js",
+    "baseUrl": "src",
     "strict": true,
     "sourceMap": true
   }

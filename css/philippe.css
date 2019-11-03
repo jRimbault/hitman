@@ -1,9 +1,15 @@
 * {
-  font-family: "Montserrat", "Helvetica", sans-serif;
+  font-family: sans-serif;
+}
+
+:root {
+  --background: #dddddd;
+  --accent: #873C11;
+  --muted: #87713b;
 }
 
 html {
-  background: url('../img/pattern.png') #ae903c;
+  background-color: var(--background);
 }
 
 .page-content {
@@ -17,19 +23,19 @@ html {
 }
 
 .page-title img {
-  border: 2px dotted #873C11;
+  border: 2px solid var(--accent);
   border-radius: 50%;
   width: 200px;
 }
 
 .page-title h1 {
-  color: #873C11;
+  color: var(--accent);
   font-size: 3em;
   margin: 0;
 }
 
 .ofc {
-  color: #87713b;
+  color: var(--muted);
   margin: 0 0 2em 0;
   text-align: center;
 }
@@ -41,9 +47,9 @@ html {
 }
 
 .words li {
-  background: #873C11;
-  border: 1px solid #873C11;
-  color: #fff;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: var(--background);
   display: inline-block;
   height: 2.3em;
   line-height: 2.3em;
@@ -53,8 +59,8 @@ html {
 }
 
 .words li strong {
-  background: #fff;
-  color: #873C11;
+  background: var(--background);
+  color: var(--accent);
   font-size: 1.2em;
   font-weight: bold;
   display: inline-block;
