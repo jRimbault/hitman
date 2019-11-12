@@ -1,8 +1,7 @@
-type ListenerMap = {
-  [K in keyof HTMLElementEventMap]?: {
-    callback: (this: HTMLObjectElement, $event: HTMLElementEventMap[K]) => unknown,
-    options?: boolean | EventListenerOptions
-  }
+type EventNames = keyof HTMLElementEventMap
+type EventHandler<Event extends EventNames> = {
+  callback: (this: HTMLObjectElement, $event: HTMLElementEventMap[Event]) => unknown,
+  options?: boolean | EventListenerOptions
 }
 
 export type NodeOptions = {
@@ -11,11 +10,7 @@ export type NodeOptions = {
   textContent?: string | { html: string }
   attributes?: { [attributeName: string]: string }
   children?: HTMLElement[]
-  listeners?: ListenerMap
-}
-
-export function notNull<T>(value?: T | null): value is T {
-  return value !== undefined && value !== null
+  listeners?: { [Event in EventNames]?: EventHandler<Event> }
 }
 
 export function createNode<Tag extends keyof HTMLElementTagNameMap>(tag: Tag, options?: NodeOptions): HTMLElementTagNameMap[Tag] {
@@ -34,15 +29,13 @@ export function createNode<Tag extends keyof HTMLElementTagNameMap>(tag: Tag, op
   return node
 }
 
+type Entry = [EventNames, EventHandler<EventNames> | undefined]
+
 function addListeners(node: HTMLElement, listeners?: NodeOptions['listeners']) {
   if (listeners) {
-    for (const [name, listener] of Object.entries(listeners)) {
-      if (listener) {
-        node.addEventListener(
-          name,
-          listener.callback as EventListenerOrEventListenerObject,
-          listener.options
-        );
+    for (const [name, handler] of Object.entries(listeners) as Entry[]) {
+      if (handler) {
+        node.addEventListener(name, handler.callback, handler.options);
       }
     }
   }
