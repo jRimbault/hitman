@@ -1,0 +1,87 @@
+{
+  "A": {
+    "key": "A",
+    "text": "Où est-il à ce jour?",
+    "file": "a-ce-jour.ogg"
+  },
+  "G": {
+    "key": "G",
+    "text": "Où est donc passé Blacky?",
+    "file": "african-americany.ogg"
+  },
+  "J": {
+    "key": "J",
+    "text": "Je sais où tu te caches!",
+    "file": "je-sais.ogg"
+  },
+  "F": {
+    "key": "F",
+    "text": "Mon frère... Je te vengerai!",
+    "file": "mon-frere.ogg"
+  },
+  "M": {
+    "key": "M",
+    "text": "C'est toi qui va mourir connard!",
+    "file": "mourir-connard.ogg"
+  },
+  "H": {
+    "key": "H",
+    "text": "Tu ne m'échapperas pas!",
+    "file": "payer.ogg"
+  },
+  "C": {
+    "key": "C",
+    "text": "Je vais te tuer petit con!",
+    "file": "petit-con.ogg"
+  },
+  "P": {
+    "key": "P",
+    "text": "Philippe!",
+    "file": "philippe.ogg"
+  },
+  "Q": {
+    "key": "Q",
+    "text": "Qui a tué mon frère?",
+    "file": "qui-a-tue.ogg"
+  },
+  "R": {
+    "key": "R",
+    "text": "Rien à foutre des japonais",
+    "file": "rien-a-foutre.ogg"
+  },
+  "S": {
+    "key": "S",
+    "text": "Salaud!",
+    "file": "salaud.ogg"
+  },
+  "E": {
+    "key": "E",
+    "text": "Viens ici sale enculé!",
+    "file": "sale-encule.ogg"
+  },
+  "T": {
+    "key": "T",
+    "text": "Ta gueule!",
+    "file": "ta-gueule.ogg"
+  },
+  "Y": {
+    "key": "Y",
+    "text": "Vas-y!",
+    "file": "vas-y.ogg"
+  },
+  "D": {
+    "key": "D",
+    "text": "On t'attend pour la vengeance!",
+    "file": "vengeance.ogg"
+  },
+  "B": {
+    "key": "B",
+    "text": "Je veux ce connard!",
+    "file": "veux-ce-connard.ogg"
+  },
+  "V": {
+    "key": "V",
+    "text": "Viens ici que je te bute enculé!",
+    "file": "viens-ici.ogg"
+  }
+}

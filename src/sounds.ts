@@ -1,89 +1,100 @@
-export type Sound = { key: string; file: string; text: string }
+import { isSound } from "type.guards"
 
-export const sounds: Sound[] = [
-  {
+type GenericSound<K> = {
+  key: K
+  file: string
+  text: string
+}
+export type Sound = GenericSound<string>
+type SoundMap<T> = { [P in keyof T]: GenericSound<P> }
+
+const lookup = {
+  A: {
+    key: 'A',
     text: "Où est-il à ce jour?",
-    key: "A",
-    file: "a-ce-jour.ogg"
+    file: "a-ce-jour.ogg",
   },
-  {
+  G: {
+    key: 'G',
     text: "Où est donc passé Blacky?",
-    key: "G",
-    file: "african-americany.ogg"
+    file: "african-americany.ogg",
   },
-  {
+  J: {
+    key: 'J',
     text: "Je sais où tu te caches!",
-    key: "J",
-    file: "je-sais.ogg"
+    file: "je-sais.ogg",
   },
-  {
+  F: {
+    key: 'F',
     text: "Mon frère... Je te vengerai!",
-    key: "F",
-    file: "mon-frere.ogg"
+    file: "mon-frere.ogg",
   },
-  {
+  M: {
+    key: 'M',
     text: "C'est toi qui va mourir connard!",
-    key: "M",
-    file: "mourir-connard.ogg"
+    file: "mourir-connard.ogg",
   },
-  {
+  H: {
+    key: 'H',
     text: "Tu ne m'échapperas pas!",
-    key: "H",
-    file: "payer.ogg"
+    file: "payer.ogg",
   },
-  {
+  C: {
+    key: 'C',
     text: "Je vais te tuer petit con!",
-    key: "C",
-    file: "petit-con.ogg"
+    file: "petit-con.ogg",
   },
-  {
+  P: {
+    key: 'P',
     text: "Philippe!",
-    key: "P",
-    file: "philippe.ogg"
+    file: "philippe.ogg",
   },
-  {
+  Q: {
+    key: 'Q',
     text: "Qui a tué mon frère?",
-    key: "Q",
-    file: "qui-a-tue.ogg"
+    file: "qui-a-tue.ogg",
   },
-  {
+  R: {
+    key: 'R',
     text: "Rien à foutre des japonais",
-    key: "R",
-    file: "rien-a-foutre.ogg"
+    file: "rien-a-foutre.ogg",
   },
-  {
+  S: {
+    key: 'S',
     text: "Salaud!",
-    key: "S",
-    file: "salaud.ogg"
+    file: "salaud.ogg",
   },
-  {
+  E: {
+    key: 'E',
     text: "Viens ici sale enculé!",
-    key: "E",
-    file: "sale-encule.ogg"
+    file: "sale-encule.ogg",
   },
-  {
+  T: {
+    key: 'T',
     text: "Ta gueule!",
-    key: "T",
-    file: "ta-gueule.ogg"
+    file: "ta-gueule.ogg",
   },
-  {
+  Y: {
+    key: 'Y',
     text: "Vas-y!",
-    key: "Y",
-    file: "vas-y.ogg"
+    file: "vas-y.ogg",
   },
-  {
+  D: {
+    key: 'D',
     text: "On t'attend pour la vengeance!",
-    key: "D",
-    file: "vengeance.ogg"
+    file: "vengeance.ogg",
   },
-  {
+  B: {
+    key: 'B',
     text: "Je veux ce connard!",
-    key: "B",
-    file: "veux-ce-connard.ogg"
+    file: "veux-ce-connard.ogg",
   },
-  {
+  V: {
+    key: 'V',
     text: "Viens ici que je te bute enculé!",
-    key: "V",
-    file: "viens-ici.ogg"
-  }
-]
+    file: "viens-ici.ogg",
+  },
+} as const
+
+const register: SoundMap<typeof lookup> = lookup
+export const sounds = Object.values(register).filter(isSound)

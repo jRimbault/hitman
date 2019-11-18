@@ -1,16 +1,16 @@
 type EventNames = keyof HTMLElementEventMap
 type EventHandler<Event extends EventNames> = {
-  callback: (this: HTMLObjectElement, $event: HTMLElementEventMap[Event]) => unknown,
-  options?: boolean | EventListenerOptions
+  readonly callback: (this: HTMLObjectElement, $event: HTMLElementEventMap[Event]) => unknown,
+  readonly options?: boolean | EventListenerOptions
 }
 
 export type NodeOptions = {
   id?: string
-  classList?: string | string[]
-  textContent?: string | { html: string }
-  attributes?: { [attributeName: string]: string }
-  children?: HTMLElement[]
-  listeners?: { [Event in EventNames]?: EventHandler<Event> }
+  classList?: string | readonly string[]
+  textContent?: string | { readonly html: string }
+  attributes?: { readonly [attributeName: string]: string }
+  children?: readonly HTMLElement[]
+  listeners?: { readonly [Event in EventNames]?: EventHandler<Event> }
 }
 
 export function createNode<Tag extends keyof HTMLElementTagNameMap>(tag: Tag, options?: NodeOptions): HTMLElementTagNameMap[Tag] {

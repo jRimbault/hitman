@@ -18,12 +18,12 @@ function makeListItem(sound: Sound) {
   })
 }
 
-function insertList(listNodes: HTMLLIElement[]) {
+function insertList(listNodes: readonly HTMLLIElement[]) {
   const ul = createNode('ul', { classList: 'words', children: listNodes })
   document.body.appendChild(ul)
 }
 
-function listeningToKeyboard(sounds: Sound[]) {
+function listeningToKeyboard(sounds: readonly Sound[]) {
   const charCodes = sounds.reduce<Partial<Record<string, string>>>((acc, sound) => {
     acc[sound.key.toLowerCase()] = sound.file
     return acc
